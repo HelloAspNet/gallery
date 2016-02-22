@@ -1,0 +1,261 @@
+@import "../../node_modules/less-plugin-est/src/all";
+@bdc: #FD628C;
+
+@nav-height: 100px;
+@nav-z-index: 200;
+
+@c: #333;
+
+
+.kmods {
+  overflow: hidden;
+  background: #efefef;
+}
+
+.kmod {
+  background: no-repeat center top;
+}
+
+.kmod-bd {
+  .clearfix();
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.kmod-header {
+  height: 300px;
+}
+
+.kmod-nav-wrap {
+  height: @nav-height;
+}
+
+.kmod-nav {
+  overflow: hidden;
+  top: 0;
+  width: 1000px;
+  height: 100px;
+  margin: 0 auto;
+  background: #ddd;
+  z-index: @nav-z-index;
+
+  &.kmod-fixed {
+    position: fixed;
+  }
+
+  li {
+    float: left;
+    width: 100% / 3;
+    a {
+      display: block;
+      width: 100%;
+      height: @nav-height;
+      &.kmod-hover,
+      &:hover {
+        border-bottom: 3px solid @bdc;
+        background-position-y: 100px;
+        background-color: #ccc;
+      }
+    }
+  }
+
+}
+
+.kmod-hash {
+  display: block;
+  position: relative;
+  top: -@nav-height;
+}
+
+.kmod-tt {
+  height: 80px;
+  line-height: 80px;
+  background: #ccc;
+  text-align: center;
+}
+
+.kmod-ct {
+  overflow: hidden;
+  padding: 10px;
+  background-color: #fff;
+}
+
+
+
+
+
+
+/* box1-begin */
+.kmod-box1 {
+  float: left;
+  width: 100% / 6;
+  font-size: 14px;
+  a {
+    display: block;
+    border: 1px solid transparent;
+    margin: 10px auto 0;
+    &:hover .kmod-img {
+      border-color: @bdc;
+    }
+  }
+  .kmod-img {
+    display: block;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    border: 1px solid transparent;
+  }
+  .kname-title {
+    padding: 10px;
+    text-align: center;
+    .ellipsis();
+  }
+}
+/* box1-end */
+
+
+
+/* box2-begin */
+.kmod-box2 {
+  float: left;
+  width: 100% / 2;
+  font-size: 14px;
+  a {
+    display: block;
+    width: 448px;
+    height: 280px;
+    margin: 10px auto 0;
+    border: 1px solid transparent;
+    padding: 10px;
+    &:hover {
+      border-color: @bdc;
+    }
+  }
+
+  .kmod-img-wrap{
+    position: relative;
+  }
+
+  .kmod-img {
+    display: block;
+    width: 448px;
+    height: 240px;
+    margin-bottom: 10px;
+  }
+
+  .kmod-img-info{
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px 10px;
+    .rgba-background(rgba(0, 0, 0, .3));
+    color: #fff;
+    .ellipsis();
+  }
+
+  .kname-price{
+    float: left;
+    color: @bdc;
+    line-height: 30px;
+    em{
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  .kname-btn{
+    float: right;
+    width: 100px;
+    height: 30px;
+    border: 1px solid @bdc;
+    padding-left: 4px;
+    line-height: 30px;
+    text-align: center;
+    color: @bdc;
+  }
+  .kname-title{
+    overflow: hidden;
+    height: 30px;
+    padding: 0 10px;
+    line-height: 38px;
+    color: @c;
+    .ellipsis();
+  }
+}
+/* box2-end */
+
+.kmod-box3 {
+  float: left;
+  width: 100% / 4;
+  padding: 10px 0;
+  font-size: 14px;
+  a {
+    display: block;
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    &:hover {
+      border-color: @bdc;
+      .kname-btn{
+        display: block;
+      }
+    }
+  }
+
+  .kmod-img{
+    display: block;
+    width: 200px;
+    height: 240px;
+    margin: 0 auto;
+  }
+
+  .kmod-info{
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .kname-title{
+    overflow: hidden;
+    color: @c;
+    line-height: 1.5;
+    text-align: center;
+    .ellipsis();
+  }
+
+  .kname-price{
+    color: @bdc;
+    line-height: 30px;
+    em{
+      position: relative;
+      bottom: -2px;
+      margin-right: 8px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    del{
+      position: relative;
+      bottom: -1px;
+      margin-left: 2px;
+      color: #999;
+    }
+  }
+
+  .kname-btn{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -11px;
+    right: -11px;
+    height: 60px;
+    padding-left: 4px;
+    line-height: 60px;
+    background-color: @bdc;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+  }
+}
