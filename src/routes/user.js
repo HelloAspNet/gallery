@@ -17,31 +17,37 @@ router
     //console.log(user)
     //ctx.user = users[val];
     //if (!ctx.user) return ctx.status = 404;
+
     await next();
   })
   .get('/', async (ctx, next) => {
+    console.log(22)
+    console.log(db)
     const user = await db.User.findAll();
     ctx.body = user;
-    //ctx.body = {
-    //  route: 'user',
-    //  url: ctx.url,
-    //  env: process.env
-    //};
   })
-  //.get('/add/:name', (ctx, next) => {
-  //  ctx.body = {
-  //    route: 'user',
-  //    url: ctx.url
-  //  };
-  //})
   .get('/get/:id', async (ctx, next) => {
 
-    const user = await db.User.findById(params.id)
+    const user = await db.User.findById(params.id);
 
     ctx.body = user;
     //ctx.body = ctx.user;
   })
-  .get('/add', async (ctx, next) => {
+  .post('/add', async (ctx, next) => {
+
+    console.log(ctx.set)
+    //const user = await db.User.create({name: 'test_ddd'});
+
+
+    ctx.set('Access-Control-Allow-Method', 'POST');
+    ctx.set('Access-Control-Allow-Origin', 'http://localhost:63342');
+    ctx.set('Access-Control-Allow-Headers', 'Content-type');
+
+
+    ctx.body = ctx;
+    //ctx.body = ctx.user;
+  })
+  .post('/update', async (ctx, next) => {
 
     const user = await db.User.create({name: 'test_ddd'});
 

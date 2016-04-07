@@ -23,18 +23,8 @@ fs
   });
 
 
-client.sync();
-  //.then(function() {
-//  return User.create({
-//    username: 'janedoe',
-//    birthday: new Date(1980, 6, 20)
-//  });
-//}).then(function(jane) {
-//  console.log(jane.get({
-//    plain: true
-//  }));
-//});
-//console.log(models);
+//client.sync();
+
 
 export default models;
 export { client };
