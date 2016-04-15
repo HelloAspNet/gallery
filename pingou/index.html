@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            border: 0;
+            padding: 0;
+        }
+        
+        html, body, #app{
+            height: 100%;
+        }
+
+        html{
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /*.workspace, .preview{*/
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*right: 0;*/
+            /*bottom: 0;*/
+            /*left: 0;*/
+        /*}*/
+
+
+        /*.preview {*/
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*left: 0;*/
+            /*z-index: 10;*/
+        /*}*/
+
+        .tools {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            z-index: 20;
+        }
+
+        .tools input[type=button] {
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+
+        .kmods{overflow:hidden;position: relative;min-height: 100%;}
+        .kmod{background:center top no-repeat}
+        .kmod-bd, .kmod-links{
+            position: relative;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .kmod-link{
+            position: absolute;
+            display: block;
+            background-color: rgba(0, 0, 0, .2);
+        }
+
+        .link_temp{
+            position: absolute;
+            z-index: 200;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="index.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+
+    $.ajaxSetup({
+        dataType: 'jsonp'
+    });
+
+    $(document)
+            .delegate('#init', {
+                click: function () {
+                    $.ajax({
+                        url: 'http://localhost:3000/init'
+                    }).done(function (res) {
+                        if (res.status) {
+                            redirectTo('http://yd.vip.com/xws/brand.tpl/src/index.act.html');
+//                            redirectTo('http://localhost:3000/preview/init');
+                        }
+                    });
+                }
+            })
+            .delegate('#built', {
+                click: function () {
+                    $.ajax({
+                        url: 'http://localhost:3000/built'
+                    }).done(function (res) {
+                        if (res.status) {
+//                            redirectTo('http://yd.vip.com/xws/brand.tpl/dist/index.act.html');
+                            redirectTo('http://localhost:3000/preview/built');
+                        }
+                    });
+                }
+            })
+            .delegate('#prod_link', {
+                click: function () {
+
+
+                }
+            })
+    ;
+
+
+
+
+
+
+
+
+    function redirectTo(url) {
+        //location.href = url;
+//        window.open(url);
+        $('#preview').attr({
+            src: url
+        });
+    }
+</script>
+</body>
+</html>
